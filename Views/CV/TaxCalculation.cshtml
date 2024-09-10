@@ -1,0 +1,29 @@
+<!-- Views/Tax/Index.cshtml -->
+@model MyCVProject.Models.TaxCalculationModel
+
+<h2>Tax Calculation</h2>
+
+<form asp-action="Calculate" method="post">
+    <div class="form-group">
+        <label for="Country">Select Country:</label>
+        <select id="Country" name="Country" class="form-control" required>
+            <option value="">-- Select Country --</option>
+            <option value="0.15">Nigeria (15%)</option>
+            <option value="0.20">USA (20%)</option>
+            <option value="0.25">UK (25%)</option>
+            <option value="0.10">Other (10%)</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="Income">Enter Your Income:</label>
+        <input type="number" id="Income" name="Income" class="form-control" step="0.01" required />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Calculate Tax</button>
+</form>
+
+@if (Model != null && Model.CalculatedTax > 0)
+{
+    <h3>Your Calculated Tax: @Model.CalculatedTax</h3>
+}
