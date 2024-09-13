@@ -4,9 +4,10 @@
 <h2>Tax Calculation</h2>
 
 <form asp-action="Calculate" method="post">
+   @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     <div class="form-group">
         <label for="Country">Select Country:</label>
-        <select id="Country" name="Country" class="form-control" required>
+        <select id="Country" name="Country" class="form-control">
             <option value="">-- Select Country --</option>
             <option value="0.15">Nigeria (15%)</option>
             <option value="0.20">USA (20%)</option>
